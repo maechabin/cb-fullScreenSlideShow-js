@@ -17,17 +17,23 @@ class FullScreenImg {
 
     let d1 = (div === "div1") ? "div2" : "div1";
     let d2 = (div === "div1") ? "div1" : "div2";
+    let self = this;
 
+    this[d2].animate({
+      "opacity": 0
+    }, 1000, () => {
+      self[d2].css({
+        "z-index": 0,
+        "background-image": "url(" + self.imageArr[self.i] + ")"
+      });
+      self.i++;
+    });
     this[d1].css({
       "z-index": 1
     }).animate({
       "opacity": 1
-    }, 600);
-    this[d2].css({
-      "opacity": 0,
-      "z-index": 0,
-      "background-image": "url(" + this.imageArr[this.i] + ")"
-    });
+    }, 1000);
+
     this.displayImgFlag = d1;
 
   }
@@ -38,7 +44,7 @@ class FullScreenImg {
       this.i = 0;
     }
     this.animateImg(this.displayImgFlag);
-    this.i++;
+
   }
 
   makeBg() {
@@ -98,9 +104,6 @@ var a =  new FullScreenImg({
     "http://jsrun.it/assets/W/j/R/b/WjRbr.jpg",
     "http://jsrun.it/assets/O/R/d/T/ORdTy.jpg",
     "http://jsrun.it/assets/E/0/s/p/E0spJ.jpg",
-    "http://jsrun.it/assets/W/j/R/b/WjRbr.jpg",
-    "http://jsrun.it/assets/O/R/d/T/ORdTy.jpg",
-    "http://jsrun.it/assets/E/0/s/p/E0spJ.jpg"
   ]
 });
 a.init();

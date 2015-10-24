@@ -5,9 +5,9 @@ var _createClass = (function () { function defineProperties(target, props) { for
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var FullScreenBgImg = (function () {
-  function FullScreenBgImg(arg) {
-    _classCallCheck(this, FullScreenBgImg);
+var FullScreenImg = (function () {
+  function FullScreenImg(arg) {
+    _classCallCheck(this, FullScreenImg);
 
     this.imageArr = arg.img;
     this.imageLength = this.imageArr.length;
@@ -16,25 +16,32 @@ var FullScreenBgImg = (function () {
     this.image = $(".image");
     this.div1 = $("<div>");
     this.div2 = $("<div>");
+    this.interval = 5000;
   }
 
-  _createClass(FullScreenBgImg, [{
+  _createClass(FullScreenImg, [{
     key: "animateImg",
     value: function animateImg(div) {
 
       var d1 = div === "div1" ? "div2" : "div1";
       var d2 = div === "div1" ? "div1" : "div2";
+      var self = this;
 
+      this[d2].animate({
+        "opacity": 0
+      }, 1000, function () {
+        self[d2].css({
+          "z-index": 0,
+          "background-image": "url(" + self.imageArr[self.i] + ")"
+        });
+        self.i++;
+      });
       this[d1].css({
         "z-index": 1
       }).animate({
         "opacity": 1
-      }, 600);
-      this[d2].css({
-        "opacity": 0,
-        "z-index": 0,
-        "background-image": "url(" + this.imageArr[this.i] + ")"
-      });
+      }, 1000);
+
       this.displayImgFlag = d1;
     }
   }, {
@@ -45,7 +52,6 @@ var FullScreenBgImg = (function () {
         this.i = 0;
       }
       this.animateImg(this.displayImgFlag);
-      this.i++;
     }
   }, {
     key: "makeBg",
@@ -90,23 +96,21 @@ var FullScreenBgImg = (function () {
 
       this.makeBg();
       if (this.imageLength) {
-
         $.each(this.imageArr, function () {
           $("<img>").attr("src", this);
         });
-
         var timer = setInterval(function () {
           _this.changeImg();
-        }, 5000);
+        }, this.interval);
       }
     }
   }]);
 
-  return FullScreenBgImg;
+  return FullScreenImg;
 })();
 
-var a = new FullScreenBgImg({
-  img: ["http://jsrun.it/assets/W/j/R/b/WjRbr.jpg", "http://jsrun.it/assets/O/R/d/T/ORdTy.jpg", "http://jsrun.it/assets/E/0/s/p/E0spJ.jpg", "http://jsrun.it/assets/W/j/R/b/WjRbr.jpg", "http://jsrun.it/assets/O/R/d/T/ORdTy.jpg", "http://jsrun.it/assets/E/0/s/p/E0spJ.jpg"]
+var a = new FullScreenImg({
+  img: ["http://jsrun.it/assets/W/j/R/b/WjRbr.jpg", "http://jsrun.it/assets/O/R/d/T/ORdTy.jpg", "http://jsrun.it/assets/E/0/s/p/E0spJ.jpg"]
 });
 a.init();
 
