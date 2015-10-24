@@ -1,4 +1,4 @@
-class FullScreenBgImg {
+class FullScreenImg {
 
   constructor(arg) {
 
@@ -9,6 +9,7 @@ class FullScreenBgImg {
     this.image = $(".image");
     this.div1 = $("<div>");
     this.div2 = $("<div>");
+    this.interval = 5000;
 
   }
 
@@ -77,22 +78,22 @@ class FullScreenBgImg {
   }
 
   init() {
+
     this.makeBg();
     if (this.imageLength) {
-
       $.each(this.imageArr, function () {
         $("<img>").attr("src", this);
       });
-
       let timer = setInterval(() => {
         this.changeImg();
-      }, 5000);
+      }, this.interval);
     }
+
   }
 
 }
 
-var a =  new FullScreenBgImg({
+var a =  new FullScreenImg({
   img: [
     "http://jsrun.it/assets/W/j/R/b/WjRbr.jpg",
     "http://jsrun.it/assets/O/R/d/T/ORdTy.jpg",
