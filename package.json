@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "watch": "watchify -t babelify ./src/app.js -o ./dist/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babelify": "^6.4.0",
+    "watchify": "^3.4.0"
+  }
 }
