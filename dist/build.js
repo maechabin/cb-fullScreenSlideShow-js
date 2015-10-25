@@ -20,9 +20,14 @@ var FullScreenImg = (function () {
       img: [],
       width: "100vw",
       height: "100vh",
+      zindex: 999,
       background: "rgba(1,1,1,0)",
       duration: 1000,
-      interval: 5000
+      interval: 5000,
+      blur: "0px",
+      grayscale: "0%",
+      sepia: "0%"
+
     };
   }
 
@@ -72,7 +77,8 @@ var FullScreenImg = (function () {
         "height": "100%",
         "background-size": "cover",
         "background-position": "center",
-        "-webkit-filter": "blur(0px) grayscale(0%) sepia(0%)"
+        "-webkit-filter": "blur(" + this.conf.blur + ") grayscale(" + this.conf.grayscale + ") sepia(" + this.conf.sepia + ")",
+        "filter": "blur(" + this.conf.blur + ") grayscale(" + this.conf.grayscale + ") sepia(" + this.conf.sepia + ")"
       };
       var div1Style = {
         "z-index": 1,
@@ -86,7 +92,7 @@ var FullScreenImg = (function () {
       };
 
       this.$element.css({
-        "z-index": 999,
+        "z-index": this.conf.zindex,
         "position": "relative",
         "width": this.conf.width,
         "height": this.conf.height,
@@ -94,8 +100,16 @@ var FullScreenImg = (function () {
       });
       this.div1.css($.extend({}, divStyle, div1Style));
       this.div2.css($.extend({}, divStyle, div2Style));
-
       this.$element.after(this.div1, this.div2);
+    }
+  }, {
+    key: "preloadImg",
+    value: function preloadImg() {
+
+      this.conf.img.forEach(function (url) {
+        var imgTag = document.createElement("img");
+        imgTag.src = url;
+      });
     }
   }, {
     key: "init",
@@ -105,13 +119,15 @@ var FullScreenImg = (function () {
       this.conf = $.extend({}, this.defaults, this.options);
       this.makeBg();
       if (this.conf.img.length) {
-        $.each(this.conf.img, function () {
-          $("<img>").attr("src", this);
-        });
-        var timer = setInterval(function () {
+
+        var timer = undefined;
+
+        this.preloadImg();
+        timer = setInterval(function () {
           _this.changeImg();
         }, this.conf.interval);
       }
+
       return this;
     }
   }]);
