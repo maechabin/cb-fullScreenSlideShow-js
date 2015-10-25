@@ -1,15 +1,22 @@
 class FullScreenImg {
 
-  constructor(arg) {
+  constructor(options) {
 
-    this.imageArr = arg.img;
-    this.imageLength = this.imageArr.length;
+    this.$element = $(".image");
     this.i = 2;
     this.displayImgFlag = "div1";
-    this.image = $(".image");
     this.div1 = $("<div>");
     this.div2 = $("<div>");
-    this.interval = 5000;
+    this.conf = {};
+    this.options = options;
+    this.defaults = {
+      img: [],
+      width: "100vw",
+      height: "100vh",
+      background: "rgba(1,1,1,0)",
+      duration: 1000,
+      interval: 5000
+    };
 
   }
 
@@ -21,10 +28,10 @@ class FullScreenImg {
 
     this[d2].animate({
       "opacity": 0
-    }, 1000, () => {
+    }, this.conf.duration, () => {
       self[d2].css({
         "z-index": 0,
-        "background-image": "url(" + self.imageArr[self.i] + ")"
+        "background-image": "url(" + self.conf.img[self.i] + ")"
       });
       self.i++;
     });
@@ -32,7 +39,7 @@ class FullScreenImg {
       "z-index": 1
     }).animate({
       "opacity": 1
-    }, 1000);
+    }, this.conf.duration);
 
     this.displayImgFlag = d1;
 
@@ -40,7 +47,7 @@ class FullScreenImg {
 
   changeImg() {
 
-    if (this.i >= this.imageLength) {
+    if (this.i >= this.conf.img.length) {
       this.i = 0;
     }
     this.animateImg(this.displayImgFlag);
@@ -56,44 +63,47 @@ class FullScreenImg {
       "width": "100%",
       "height": "100%",
       "background-size": "cover",
-      "background-position": "center"
+      "background-position": "center",
+      "-webkit-filter": "blur(0px) grayscale(0%) sepia(0%)"
     };
     let div1Style = {
       "z-index": 1,
       "opacity": 1,
-      "background-image": "url(" + this.imageArr[0] + ")"
+      "background-image": "url(" + this.conf.img[0] + ")"
     };
     let div2Style = {
       "z-index": 0,
       "opacity": 0,
-      "background-image": "url(" + this.imageArr[1] + ")"
+      "background-image": "url(" + this.conf.img[1] + ")"
     };
 
-    this.image.css({
+    this.$element.css({
       "z-index": 999,
       "position": "relative",
-      "width": "100vw",
-      "height": "100vh",
-      "background-color": "transparent"
+      "width": this.conf.width,
+      "height": this.conf.height,
+      "background-color": this.conf.background
     });
     this.div1.css($.extend({}, divStyle, div1Style));
     this.div2.css($.extend({}, divStyle, div2Style));
 
-    this.image.after(this.div1, this.div2);
+    this.$element.after(this.div1, this.div2);
 
   }
 
   init() {
 
+    this.conf = $.extend({}, this.defaults, this.options);
     this.makeBg();
-    if (this.imageLength) {
-      $.each(this.imageArr, function () {
+    if (this.conf.img.length) {
+      $.each(this.conf.img, function () {
         $("<img>").attr("src", this);
       });
       let timer = setInterval(() => {
         this.changeImg();
-      }, this.interval);
+      }, this.conf.interval);
     }
+    return this;
 
   }
 
