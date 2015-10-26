@@ -1,16 +1,31 @@
 {
-  "name": "cbfullscreenimg",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "name": "cbfsslideshow",
+  "version": "0.1.0",
+  "description": "slideshow for images of background on full screen",
+  "main": "./dist/cb-fsslideshow.min.js",
   "scripts": {
-    "watch": "watchify -t babelify ./src/app.js -o ./dist/build.js",
+    "watch": "watchify -t babelify ./src/app.js -o ./dist/cb-fsslideshow.js",
+    "build": "browserify -t babelify ./src/app.js | uglifyjs -c warnings=false > ./dist/cb-fsslideshow.min.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "@maechabin",
+  "license": "MIT license",
+  "browserify-shim": {
+    "jquery": "global:$"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
   "devDependencies": {
     "babelify": "^6.4.0",
+    "browserify": "^11.2.0",
+    "browserify-shim": "^3.8.10",
+    "uglify-js": "^2.5.0",
     "watchify": "^3.4.0"
+  },
+  "dependencies": {
+    "object-assign": "^4.0.1"
   }
 }
