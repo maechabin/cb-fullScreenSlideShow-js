@@ -167,20 +167,29 @@ var assign = require("object-assign");
         });
       }
     }, {
-      key: "init",
-      value: function init() {
+      key: "startTimer",
+      value: function startTimer() {
         var _this = this;
 
+        this.setTimer = setInterval(function () {
+          _this.changeImg();
+        }, this.conf.interval);
+      }
+    }, {
+      key: "stopTimer",
+      value: function stopTimer() {
+
+        clearInterval(this.setTimer);
+      }
+    }, {
+      key: "init",
+      value: function init() {
+
         this.conf = assign({}, this.defaults, this.options);
-        this.makeBg();
         if (this.conf.img.length) {
-
-          var timer = undefined;
-
+          this.makeBg();
           this.preloadImg();
-          this.setTimer = setInterval(function () {
-            _this.changeImg();
-          }, this.conf.interval);
+          this.startTimer();
         }
 
         return this;

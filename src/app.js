@@ -120,18 +120,27 @@ var assign = require("object-assign");
 
     }
 
+    startTimer() {
+
+      this.setTimer = setInterval(() => {
+        this.changeImg();
+      }, this.conf.interval);
+
+    }
+
+    stopTimer() {
+
+      clearInterval(this.setTimer);
+
+    }
+
     init() {
 
       this.conf = assign({}, this.defaults, this.options);
-      this.makeBg();
       if (this.conf.img.length) {
-
-        let timer;
-
+        this.makeBg();
         this.preloadImg();
-        this.setTimer = setInterval(() => {
-          this.changeImg();
-        }, this.conf.interval);
+        this.startTimer();
       }
 
       return this;
