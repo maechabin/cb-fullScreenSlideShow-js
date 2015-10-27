@@ -137,6 +137,8 @@ require("jquery-ui/widget");
 
   $.widget("plugin.cbFullScreenSlideShow", {
 
+    fsss: {},
+
     options: {
       img: [],
       width: "100vw",
@@ -150,12 +152,25 @@ require("jquery-ui/widget");
       sepia: "0%"
     },
 
-    _init: function() {
+    _create() {
       let element = this.element;
       let options = this.options;
-      new FullScreenSlideShow(element, options).init();
-    }
+      this.fsss = new FullScreenSlideShow(element, options);
+    },
 
+    _init() {
+      this.fsss.init();
+    },
+
+    start() {
+      alert("start");
+      //this.fsss.startTimer();
+    },
+
+    stop() {
+      alert("stop");
+      //this.fsss.stopTimer();
+    }
 
   });
 

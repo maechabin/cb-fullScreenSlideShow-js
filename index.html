@@ -16,20 +16,30 @@ body {
 <body>
 <div class="image">
   aaaaaa
-<div class="aaa">aaa</div>
-
+<div class="start">start</div>
+<div class="stop">stop</div>
 </div>
 
 
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="./dist/cb-fsslideshow.js"></script>
 <script>
-$(".image").cbFullScreenSlideShow({
-  img: [
-    "http://jsrun.it/assets/W/j/R/b/WjRbr.jpg",
-    "http://jsrun.it/assets/O/R/d/T/ORdTy.jpg",
-    "http://jsrun.it/assets/E/0/s/p/E0spJ.jpg",
-  ]
+$(function () {
+
+  $(".image").cbFullScreenSlideShow({
+    img: [
+      "http://jsrun.it/assets/W/j/R/b/WjRbr.jpg",
+      "http://jsrun.it/assets/O/R/d/T/ORdTy.jpg",
+      "http://jsrun.it/assets/E/0/s/p/E0spJ.jpg",
+    ]
+  });
+
+    $(".image").cbFullScreenSlideShow("start");
+
+
+    $(".image").cbFullScreenSlideShow("stop");
+
+
 });
 </script>
 
