@@ -23,21 +23,7 @@ require("jquery-ui/widget");
       this.displayImgFlag = "div1";
       this.div1 = $("<div>");
       this.div2 = $("<div>");
-      this.conf = {};
-      this.options = options;
-      this.defaults = {
-        img: [],
-        width: "100vw",
-        height: "100vh",
-        zindex: 999,
-        background: "rgba(1,1,1,0)",
-        duration: 1000,
-        interval: 5000,
-        blur: "0px",
-        grayscale: "0%",
-        sepia: "0%"
-
-      };
+      this.conf = options;
 
     }
 
@@ -136,7 +122,7 @@ require("jquery-ui/widget");
     }
 
     init() {
-      this.conf = assign({}, this.defaults, this.options);
+
       if (this.conf.img.length) {
         this.makeBg();
         this.preloadImg();
@@ -149,13 +135,27 @@ require("jquery-ui/widget");
 
   }
 
-  $.extend($.fn, {
+  $.widget("plugin.cbFullScreenSlideShow", {
 
-    cbFullScreenSlideShow(options) {
-      return this.each(() => {
-        new FullScreenSlideShow(this, options).init();
-      });
+    options: {
+      img: [],
+      width: "100vw",
+      height: "100vh",
+      zindex: 999,
+      background: "rgba(1,1,1,0)",
+      duration: 1000,
+      interval: 5000,
+      blur: "0px",
+      grayscale: "0%",
+      sepia: "0%"
+    },
+
+    _init: function() {
+      let element = this.element;
+      let options = this.options;
+      new FullScreenSlideShow(element, options).init();
     }
+
 
   });
 
