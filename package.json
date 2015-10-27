@@ -1,6 +1,6 @@
 {
   "name": "cbfsslideshow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "slideshow for images of background on full screen",
   "main": "./dist/cb-fsslideshow.min.js",
   "scripts": {
@@ -10,6 +10,9 @@
   },
   "author": "@maechabin",
   "license": "MIT license",
+  "browser": {
+    "jquery-ui/widget": "./node_modules/jquery-ui/widget.js"
+  },
   "browserify-shim": {
     "jquery": "global:$"
   },
@@ -26,6 +29,7 @@
     "watchify": "^3.4.0"
   },
   "dependencies": {
+    "jquery-ui": "^1.10.5",
     "object-assign": "^4.0.1"
   }
 }

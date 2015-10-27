@@ -1,5 +1,6 @@
 var jQuery = require("jquery");
 var assign = require("object-assign");
+require("jquery-ui/widget");
 
 ;((factory) => {
 
@@ -135,7 +136,6 @@ var assign = require("object-assign");
     }
 
     init() {
-
       this.conf = assign({}, this.defaults, this.options);
       if (this.conf.img.length) {
         this.makeBg();
