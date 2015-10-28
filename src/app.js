@@ -19,7 +19,7 @@ require("jquery-ui/widget");
       this.element = element;
       this.$element = $(element);
       this.i = 2;
-      this.setTimer = "";
+      this.setTimer = 0;
       this.displayImgFlag = "div1";
       this.div1 = $("<div>");
       this.div2 = $("<div>");
@@ -109,15 +109,20 @@ require("jquery-ui/widget");
 
     startTimer() {
 
-      this.setTimer = setInterval(() => {
-        this.changeImg();
-      }, this.conf.interval);
+      if(this.setTimer === 0) {
+        this.setTimer = setInterval(() => {
+          this.changeImg();
+        }, this.conf.interval);
+      }
 
     }
 
     stopTimer() {
 
-      clearInterval(this.setTimer);
+      if(this.setTimer !== 0) {
+        clearInterval(this.setTimer);
+      }
+      this.setTimer = 0;
 
     }
 
@@ -126,7 +131,6 @@ require("jquery-ui/widget");
       if (this.conf.img.length) {
         this.makeBg();
         this.preloadImg();
-        this.startTimer();
       }
 
       return this;
@@ -153,23 +157,25 @@ require("jquery-ui/widget");
     },
 
     _create() {
+
       let element = this.element;
       let options = this.options;
-      this.fsss = new FullScreenSlideShow(element, options);
-    },
+      if (options.img instanceof Array && options.img.length !== 0) {
+        this.fsss = new FullScreenSlideShow(element, options);
+        this.fsss.init();
+        this.fsss.startTimer();
+      } else {
+        return;
+      }
 
-    _init() {
-      this.fsss.init();
     },
 
     start() {
-      alert("start");
-      //this.fsss.startTimer();
+      this.fsss.startTimer();
     },
 
     stop() {
-      alert("stop");
-      //this.fsss.stopTimer();
+      this.fsss.stopTimer();
     }
 
   });

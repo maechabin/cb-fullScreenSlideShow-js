@@ -593,7 +593,7 @@ require("jquery-ui/widget");
       this.element = element;
       this.$element = $(element);
       this.i = 2;
-      this.setTimer = "";
+      this.setTimer = 0;
       this.displayImgFlag = "div1";
       this.div1 = $("<div>");
       this.div2 = $("<div>");
@@ -685,15 +685,20 @@ require("jquery-ui/widget");
       value: function startTimer() {
         var _this = this;
 
-        this.setTimer = setInterval(function () {
-          _this.changeImg();
-        }, this.conf.interval);
+        if (this.setTimer === 0) {
+          this.setTimer = setInterval(function () {
+            _this.changeImg();
+          }, this.conf.interval);
+        }
       }
     }, {
       key: "stopTimer",
       value: function stopTimer() {
 
-        clearInterval(this.setTimer);
+        if (this.setTimer !== 0) {
+          clearInterval(this.setTimer);
+        }
+        this.setTimer = 0;
       }
     }, {
       key: "init",
@@ -702,7 +707,6 @@ require("jquery-ui/widget");
         if (this.conf.img.length) {
           this.makeBg();
           this.preloadImg();
-          this.startTimer();
         }
 
         return this;
@@ -730,23 +734,24 @@ require("jquery-ui/widget");
     },
 
     _create: function _create() {
+
       var element = this.element;
       var options = this.options;
-      this.fsss = new FullScreenSlideShow(element, options);
-    },
-
-    _init: function _init() {
-      this.fsss.init();
+      if (options.img instanceof Array && options.img.length !== 0) {
+        this.fsss = new FullScreenSlideShow(element, options);
+        this.fsss.init();
+        this.fsss.startTimer();
+      } else {
+        return;
+      }
     },
 
     start: function start() {
-      alert("start");
-      //this.fsss.startTimer();
+      this.fsss.startTimer();
     },
 
     stop: function stop() {
-      alert("stop");
-      //this.fsss.stopTimer();
+      this.fsss.stopTimer();
     }
 
   });
