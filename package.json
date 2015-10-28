@@ -1,14 +1,14 @@
 {
-  "name": "cbfsslideshow",
+  "name": "cbfsss",
   "version": "0.2.0",
   "description": "slideshow for images of background on full screen",
-  "main": "./dist/cb-fsslideshow.min.js",
+  "main": "./dist/cb-fsss.min.js",
   "scripts": {
-    "watch": "watchify -t babelify ./src/app.js -o ./dist/cb-fsslideshow.js",
-    "build": "browserify -t babelify ./src/app.js | uglifyjs -c warnings=false > ./dist/cb-fsslideshow.min.js",
+    "watch": "watchify -t babelify ./src/app.js -o ./dist/cb-fsss.js",
+    "build": "browserify -t babelify ./src/app.js | uglifyjs -c warnings=false > ./dist/cb-fsss.min.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "@maechabin",
+  "author": "@maechabin <mail@chab.in> http://mae.chab.in/",
   "license": "MIT license",
   "browser": {
     "jquery-ui/widget": "./node_modules/jquery-ui/widget.js"
