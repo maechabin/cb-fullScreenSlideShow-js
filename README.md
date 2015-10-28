@@ -10,6 +10,10 @@ cb-fullscreenslideshow.jsは、画像の配列を読み込んで、ブラウザ�
 
 ## demo
 
+通常スタイル
+http://jsrun.it/maechabin/oFAj
+
+開始、停止機能実装スタイル
 http://jsrun.it/maechabin/kNLM
 
 ## usage
