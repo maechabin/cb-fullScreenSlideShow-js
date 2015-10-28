@@ -6,7 +6,7 @@ cb-fullscreenslideshow.jsは、画像の配列を読み込んで、ブラウザ�
 
 以下のjQueryメソッドを提供します。
 
-- **.cbFullScreenSlideShow()メソッド: 指定した要素に対して画像のフルスクリーンスライドショーの機能を付与します。
+- **.cbFullScreenSlideShow()メソッド**: 指定した要素に対して画像のフルスクリーンスライドショーの機能を付与します。
 
 ## demo
 
@@ -62,9 +62,9 @@ $(".cb-fsss").cbFullScreenSlideShow({
 
 当プラグインでは以下のapiを提供します。
 
-- **.cbFullScreenSlideShow("stop")メソッド: スライドショー機能を付与した要素に対して実行することで、スライドショーを停止させる機能を提供します。
+- **.cbFullScreenSlideShow("stop")メソッド**: スライドショー機能を付与した要素に対して実行することで、スライドショーを停止させる機能を提供します。
 
-- **.cbFullScreenSlideShow("start")メソッド: スライドショー機能を付与した要素に対して実行することで、スライドショーを開始させる機能を提供します。
+- **.cbFullScreenSlideShow("start")メソッド**: スライドショー機能を付与した要素に対して実行することで、スライドショーを開始させる機能を提供します。
 
 
 ## options
