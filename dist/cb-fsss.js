@@ -613,7 +613,7 @@ require("jquery-ui/widget");
         }, this.conf.duration, function () {
           self[d2].css({
             "z-index": 0,
-            "background-image": "url(" + self.conf.img[self.i] + ")"
+            "background-image": "url(" + self.conf.img[self.i].src + ")"
           });
           self.i++;
         });
@@ -652,12 +652,12 @@ require("jquery-ui/widget");
         var div1Style = {
           "z-index": 1,
           "opacity": 1,
-          "background-image": "url(" + this.conf.img[0] + ")"
+          "background-image": "url(" + this.conf.img[0].src + ")"
         };
         var div2Style = {
           "z-index": 0,
           "opacity": 0,
-          "background-image": "url(" + this.conf.img[1] + ")"
+          "background-image": "url(" + this.conf.img[1].src + ")"
         };
 
         this.$element.css({
@@ -677,7 +677,7 @@ require("jquery-ui/widget");
 
         this.conf.img.forEach(function (url) {
           var imgTag = document.createElement("img");
-          imgTag.src = url;
+          imgTag.src = url.src;
         });
       }
     }, {
@@ -733,6 +733,14 @@ require("jquery-ui/widget");
       sepia: "0%"
     },
 
+    start: function start() {
+      this.fsss.startTimer();
+    },
+
+    stop: function stop() {
+      this.fsss.stopTimer();
+    },
+
     _create: function _create() {
 
       var element = this.element;
@@ -744,14 +752,6 @@ require("jquery-ui/widget");
       } else {
         return;
       }
-    },
-
-    start: function start() {
-      this.fsss.startTimer();
-    },
-
-    stop: function stop() {
-      this.fsss.stopTimer();
     }
 
   });

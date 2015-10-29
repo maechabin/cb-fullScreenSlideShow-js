@@ -19,16 +19,22 @@ body {
 </div>
 
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="../dist/cb-fsss.min.js"></script>
+<script src="../dist/cb-fsss.js"></script>
 <script>
 $(function () {
 
   $(".image").cbFullScreenSlideShow({
-    img: [
-      "http://jsrun.it/assets/U/z/W/x/UzWxP.jpg",
-      "http://jsrun.it/assets/k/I/5/n/kI5nR.jpg",
-      "http://jsrun.it/assets/g/5/i/7/g5i7d.jpg"
-    ]
+    img: [{
+      src: "http://jsrun.it/assets/U/z/W/x/UzWxP.jpg",
+      alt: "",
+      link: ""
+    },
+    {
+      src: "http://jsrun.it/assets/k/I/5/n/kI5nR.jpg"
+    },
+    {
+      src: "http://jsrun.it/assets/g/5/i/7/g5i7d.jpg"
+    }]
   });
 
   $(".start").on("click", function () {

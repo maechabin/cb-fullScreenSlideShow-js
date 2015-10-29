@@ -1,4 +1,4 @@
-# cb-fullscreenslideshow.js
+# cb-fullscreenslideshow.js (cbfsss)
 
 ## about
 
@@ -51,12 +51,19 @@ $ git clone git@github.com:maechabin/cb-fullScreenSlideShow-js.git 任意のデ�
 
 ```javascript
 $(".cb-fsss").cbFullScreenSlideShow({
-  img: [
-    "./image/aaa.png",
-    "./image/bbb.png",
-    "./image/ccc.png",
-    "./image/ddd.png"
-  ]
+  img: [{
+    src: "./image/aaa.png",
+    alt: "画像1",
+    link: "http://example.com/"
+  },
+  {
+    src: "./image/bbb.png"
+    alt: "画像2"
+  },
+  {
+    src: "./image/ccc.png",
+    link: "./image/ccc.png"
+  }]
 });
 ```
 
@@ -74,8 +81,13 @@ $(".cb-fsss").cbFullScreenSlideShow({
 ## options
 
 <dl>
-<dt>width {Array} 必須</dt>
-<dd>スライドショーさせたい画像のパスを配列で指定します。デフォルト値は`[]`。</dd>
+<dt>img {Array} 必須</dt>
+<dd>スライドショーさせたい画像の情報（オブジェクト）を配列で指定します。デフォルト値は`[]`。画像の情報は以下の形式で指定します。
+
+```
+{src: 画像のパス（必須）, alt: 画像の説明（任意）, link: 画像の飛び先URL（任意）}
+```
+</dd>
 
 <dt>width {String}</dt>
 <dd>スライドショー機能を付与する要素の幅を指定します。cssでのwidthプロパティに指定できる値で指定します。デフォルト値は`100vw`。</dd>
