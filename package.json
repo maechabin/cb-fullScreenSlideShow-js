@@ -2,6 +2,7 @@
   "name": "cbfsss",
   "version": "0.3.0",
   "description": "jQuery Plugin for slideshowing the background images on full screen",
+  "keywords": "jquery-plugin",
   "main": "./dist/cb-fsss.min.js",
   "scripts": {
     "watch": "watchify -t babelify ./src/app.js -o ./dist/cb-fsss.js",
@@ -30,6 +31,7 @@
     "watchify": "^3.4.0"
   },
   "dependencies": {
+    "jquery": "^1.11.2",
     "jquery-ui": "^1.10.5",
     "object-assign": "^4.0.1"
   }

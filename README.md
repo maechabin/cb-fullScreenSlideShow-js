@@ -26,6 +26,11 @@ http://jsrun.it/maechabin/kNLM
 $ git clone git@github.com:maechabin/cb-fullScreenSlideShow-js.git 任意のディレクトリ名
 ```
 
+npm経由でも入手可能です。
+```
+$ npm install --save cbfsss
+```
+
 ### 2. プラグイン & 外部ファイルを読み込む
 
 使用するプラグインはdistディレクト内にあります。jQueryと一緒にページに読み込みます。
@@ -35,7 +40,8 @@ $ git clone git@github.com:maechabin/cb-fullScreenSlideShow-js.git 任意のデ�
 <script src="jquery.cb-fsss.min.js"></script>
 ```
 
-※当プラグインはCommonJSに対応しています。require()メソッドで読み込んでもOKです。
+＊当プラグインはCommonJSに対応しています。require()メソッドで読み込んでもOKです。
+
 
 ### 3. 要素を作る
 
