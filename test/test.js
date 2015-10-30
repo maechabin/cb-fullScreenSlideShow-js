@@ -6,17 +6,28 @@
     beforeEach: function () {
       this.fsss = $(".cb-fsss");
       this.fsss.cbFullScreenSlideShow({
-        img: [
-          "http://jsrun.it/assets/U/z/W/x/UzWxP.jpg",
-          "http://jsrun.it/assets/k/I/5/n/kI5nR.jpg",
-          "http://jsrun.it/assets/g/5/i/7/g5i7d.jpg"
-        ]
+        img: [{
+          src: "http://jsrun.it/assets/U/z/W/x/UzWxP.jpg",
+        },
+        {
+          src: "http://jsrun.it/assets/k/I/5/n/kI5nR.jpg"
+        },
+        {
+          src: "http://jsrun.it/assets/g/5/i/7/g5i7d.jpg"
+        }]
       });
     }
   });
 
   QUnit.test("$.fn.cbFullScreenSlideShow()が読み込まれているか", function (assert) {
     assert.ok($.fn.cbFullScreenSlideShow, "Passed!!");
+  });
+
+  QUnit.test("div要素が生成されているか", function (assert) {
+    var div1 = this.fsss.next();
+    var div2 = div1.next();
+    assert.ok(div1, "Passed!!");
+    assert.ok(div2, "Passed!!");
   });
 
   QUnit.test("デフォルト値のチェック", function (assert) {
