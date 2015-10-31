@@ -41,8 +41,9 @@ $ npm install --save cbfsss
 ```
 
 ＊当プラグインはCommonJSに対応しています。require()メソッドで読み込んでもOKです。
-```javascript
-require("cbfsss");
+```
+var jQuery = require('jquery');
+require('cbfsss');
 ```
 
 ### 3. 要素を作る
