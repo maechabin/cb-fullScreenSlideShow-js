@@ -1,6 +1,6 @@
 {
   "name": "cbfsss",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "jQuery Plugin for slideshowing the background images on full screen",
   "keywords": "jquery-plugin",
   "main": "./dist/cb-fsss.min.js",
@@ -14,6 +14,10 @@
   "browser": {
     "jquery-ui/widget": "./node_modules/jquery-ui/widget.js"
   },
+  "repository": {
+  "type": "git",
+  "url": "git@github.com:maechabin/cb-fullScreenSlideShow-js.git"
+},
   "browserify-shim": {
     "jquery": "global:$"
   },
