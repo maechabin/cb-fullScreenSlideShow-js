@@ -4,16 +4,26 @@
 
 cb-fullscreenslideshow.jsは、画像の配列を読み込んで、ブラウザの画面全体（フルスクリーン）に表示させるためのjQueryプラグインです。画像が複数ある場合は、アニメーションを伴ったスライドショーで順々に表示していきます。
 
+- 要素に対してメッソドを実行させるだけの簡単実装
+- アニメーションを伴ったスライドショー
+- レスポンシブ対応
+- オプションでスライドショーのサイズを全画面ではなく任意の値に変更可能
+- オプションでアニメーションの速度、スライドショーの速度を変更可能
+- オプションで画像にエフェクトをつけることが可能
+
 以下のjQueryメソッドを提供します。
 
 - **.cbFullScreenSlideShow()メソッド**: 指定した要素に対して画像のフルスクリーンスライドショーの機能を付与します。
 
+English here<br>
+http://www.jqueryscript.net/slideshow/Fullscreen-Responsive-Background-Slideshow-with-jQuery-cb-fsss-js.html
+
 ## demo
 
-通常スタイル
+通常スタイル<br>
 http://jsrun.it/maechabin/oFAj
 
-開始、停止機能実装スタイル
+開始、停止機能実装スタイル<br>
 http://jsrun.it/maechabin/kNLM
 
 ## usage
