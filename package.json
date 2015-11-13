@@ -1,7 +1,7 @@
 {
   "name": "cbfsss",
-  "version": "0.3.2",
-  "description": "jQuery Plugin for slideshowing the background images on full screen",
+  "version": "0.3.3",
+  "description": "Fullscreen Responsive Background Slideshow with jQuery",
   "keywords": "jquery-plugin",
   "main": "./dist/cb-fsss.min.js",
   "scripts": {
