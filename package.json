@@ -6,8 +6,7 @@
   "main": "./dist/cb-fsss.min.js",
   "scripts": {
     "watch": "watchify -t babelify ./src/app.js -o ./dist/cb-fsss.js",
-    "build": "browserify -t babelify ./src/app.js | uglifyjs -c warnings=false > ./dist/cb-fsss.min.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "browserify -t babelify ./src/app.js | uglifyjs -c warnings=false > ./dist/cb-fsss.min.js"
   },
   "author": "@maechabin <mail@chab.in> http://mae.chab.in/",
   "license": "MIT license",
@@ -15,9 +14,9 @@
     "jquery-ui/widget": "./node_modules/jquery-ui/widget.js"
   },
   "repository": {
-  "type": "git",
-  "url": "git@github.com:maechabin/cb-fullScreenSlideShow-js.git"
-},
+    "type": "git",
+    "url": "git@github.com:maechabin/cb-fullScreenSlideShow-js.git"
+  },
   "browserify-shim": {
     "jquery": "global:$"
   },
@@ -38,5 +37,9 @@
     "jquery": "^1.11.2",
     "jquery-ui": "^1.10.5",
     "object-assign": "^4.0.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/maechabin/cb-fullScreenSlideShow-js/issues"
+  },
+  "homepage": "https://github.com/maechabin/cb-fullScreenSlideShow-js"
 }
