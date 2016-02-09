@@ -1,6 +1,6 @@
 /**
  * cb-fsss - Fullscreen Responsive Background Slideshow with jQuery
- * @version v0.3.3
+ * @version v0.3.4
  * @author maechabin <mail@chab.in> http://mae.chab.in/
  * @license MIT license
  */
@@ -728,7 +728,7 @@ require("jquery-ui/widget");
 
     options: {
       img: [],
-      width: "100vw",
+      width: "100%",
       height: "100vh",
       zindex: 999,
       background: "rgba(1,1,1,0)",

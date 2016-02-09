@@ -145,7 +145,7 @@ require("jquery-ui/widget");
 
     options: {
       img: [],
-      width: "100vw",
+      width: "100%",
       height: "100vh",
       zindex: 999,
       background: "rgba(1,1,1,0)",

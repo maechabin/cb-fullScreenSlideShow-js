@@ -110,7 +110,7 @@ $(".cb-fsss").cbFullScreenSlideShow({
 </dd>
 
 <dt>width {String}</dt>
-<dd>スライドショー機能を付与する要素の幅を指定します。cssでのwidthプロパティに指定できる値で指定します。デフォルト値は`100vw`。</dd>
+<dd>スライドショー機能を付与する要素の幅を指定します。cssでのwidthプロパティに指定できる値で指定します。デフォルト値は`100％`。</dd>
 
 <dt>height {String}</dt>
 <dd>スライドショー機能を付与する要素の高さを指定します。cssでのheightプロパティに指定できる値で指定します。デフォルト値は`100vh`。</dd>
@@ -140,3 +140,9 @@ $(".cb-fsss").cbFullScreenSlideShow({
 
 ## license
 MIT license
+
+## Update
+
+### v0.3.4
+
+オプションのwidthのデフィルト値を100vwから100%に変更
