@@ -127,7 +127,7 @@ $(".cb-fsss").cbFullScreenSlideShow({
 <dt>interval {Number}</dt>
 <dd>スライドショー機能の1枚の画像の表示する時間を指定します。数値（単位はミリ秒)で指定します。デフォルト値は`5000`。</dd>
 
-<dt>interval {String}</dt>
+<dt>blur {String}</dt>
 <dd>スライドショーで表示する画像に「ぼかし」のエフェクトをかけます。cssのfilterプロパティのblur関数の引数に指定できる値（0px〜10px)で指定します。デフォルト値は`0px`。</dd>
 
 <dt>grayscale {String}</dt>
