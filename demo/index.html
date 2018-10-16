@@ -3,50 +3,55 @@
 <html>
 
 <head>
-<meta charset="utf-8">
-<style>
-body {
-  margin: 0;
-  padding: 0;
-}
-</style>
+  <meta charset="utf-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .button {
+      z-index: 10000;
+      position: absolute;
+    }
+  </style>
 </head>
 
 <body>
-<div class="image">
-  <button class="start">start</button>
-  <button class="stop">stop</button>
-</div>
+  <div class="image">
+    <div class="button">
+      <button class="start">start</button>
+      <button class="stop">stop</button>
+    </div>
+  </div>
 
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="../dist/cb-fsss.js"></script>
-<script>
-$(function () {
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="../dist/cb-fsss.min.js"></script>
+  <script>
+    $(function () {
+      $(".image").cbFullScreenSlideShow({
+        img: [{
+          src: "http://jsrun.it/assets/U/z/W/x/UzWxP.jpg",
+          alt: "",
+          link: ""
+        },
+        {
+          src: "http://jsrun.it/assets/k/I/5/n/kI5nR.jpg"
+        },
+        {
+          src: "http://jsrun.it/assets/g/5/i/7/g5i7d.jpg"
+        }]
+      });
 
-  $(".image").cbFullScreenSlideShow({
-    img: [{
-      src: "http://jsrun.it/assets/U/z/W/x/UzWxP.jpg",
-      alt: "",
-      link: ""
-    },
-    {
-      src: "http://jsrun.it/assets/k/I/5/n/kI5nR.jpg"
-    },
-    {
-      src: "http://jsrun.it/assets/g/5/i/7/g5i7d.jpg"
-    }]
-  });
+      $(".start").on("click", function () {
+        $(".image").cbFullScreenSlideShow("start");
+      });
 
-  $(".start").on("click", function () {
-    $(".image").cbFullScreenSlideShow("start");
-  });
-
-  $(".stop").on("click", function () {
-    $(".image").cbFullScreenSlideShow("stop");
-  });
-
-});
-</script>
+      $(".stop").on("click", function () {
+        $(".image").cbFullScreenSlideShow("stop");
+      });
+    });
+  </script>
 
 </body>
 
